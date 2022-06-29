@@ -1,22 +1,24 @@
-package com.youngadessi.app.post.service.entity;
+package com.youngadessi.app.post.model.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "tbl_comment")
 @Getter
 @Setter
+@AttributeOverrides({
+        @AttributeOverride(name = "id", column = @Column(name = "comment_id"))
+})
 public class Comment extends BaseEntity {
 
     @Column(name = "comment_text")
     private String commentText;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "post_id")
     private Post post;
 

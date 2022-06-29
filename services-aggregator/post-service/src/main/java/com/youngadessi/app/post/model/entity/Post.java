@@ -1,18 +1,10 @@
-package com.youngadessi.app.post.service.entity;
+package com.youngadessi.app.post.model.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Index;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -21,6 +13,9 @@ import java.util.List;
 @Table(name = "tbl_post")
 @Getter
 @Setter
+@AttributeOverrides({
+        @AttributeOverride(name = "id", column = @Column(name = "post_id"))
+})
 public class Post extends BaseEntity {
 
     @NotNull
@@ -33,14 +28,14 @@ public class Post extends BaseEntity {
     @Column(name = "content")
     private String content;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade=CascadeType.ALL)
     private List<Comment> comments;
 
-    @ManyToMany
+    @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
             name = "tbl_post_tags",
-            joinColumns = @JoinColumn(name = "post_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id",referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "post_id",referencedColumnName = "post_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id",referencedColumnName = "tag_id"))
     private List<Tag> tags;
 
 }

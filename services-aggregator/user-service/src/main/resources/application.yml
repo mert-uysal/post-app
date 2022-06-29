@@ -6,7 +6,7 @@ spring:
 spring:
   datasource:
     hikari:
-      pool-name: HikariUserServiceConnection
+      pool-name: HikariUserServiceConnection #sadece logda okumak için
       schema: user_schema
 
 server:
