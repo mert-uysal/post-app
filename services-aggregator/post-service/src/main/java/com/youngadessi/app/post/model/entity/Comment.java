@@ -10,9 +10,6 @@ import javax.persistence.*;
 @Table(name = "tbl_comment")
 @Getter
 @Setter
-@AttributeOverrides({
-        @AttributeOverride(name = "id", column = @Column(name = "comment_id"))
-})
 public class Comment extends BaseEntity {
 
     @Column(name = "comment_text")

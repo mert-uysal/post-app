@@ -13,9 +13,6 @@ import java.util.List;
 @Table(name = "tbl_post")
 @Getter
 @Setter
-@AttributeOverrides({
-        @AttributeOverride(name = "id", column = @Column(name = "post_id"))
-})
 public class Post extends BaseEntity {
 
     @NotNull
@@ -34,8 +31,8 @@ public class Post extends BaseEntity {
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
             name = "tbl_post_tags",
-            joinColumns = @JoinColumn(name = "post_id",referencedColumnName = "post_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id",referencedColumnName = "tag_id"))
+            joinColumns = @JoinColumn(name = "post_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id",referencedColumnName = "id"))
     private List<Tag> tags;
 
 }

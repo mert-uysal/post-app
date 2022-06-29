@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TagCreateDTO {
+public class TagCreateModel {
     private String tagName;
 }

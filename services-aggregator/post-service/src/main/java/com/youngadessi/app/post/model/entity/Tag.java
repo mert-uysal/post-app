@@ -14,9 +14,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "tbl_tag")
 @Getter
 @Setter
-@AttributeOverrides({
-        @AttributeOverride(name = "id", column = @Column(name = "tag_id"))
-})
 public class Tag extends BaseEntity {
 
     @NotNull

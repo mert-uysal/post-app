@@ -18,11 +18,10 @@ public abstract class BaseEntity {
     private Long id;
 
     @Column(name = "created_time")
-//    private Date createdTime;
     private LocalDateTime createdTime;
 
     @Column(name = "updated_time")
-    private Date updatedTime;
+    private LocalDateTime updatedTime;
 
     @Column(name = "create_user_id")
     private Long createUserId;
