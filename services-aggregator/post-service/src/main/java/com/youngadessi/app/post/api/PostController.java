@@ -68,4 +68,10 @@ public class PostController {
         this.postService.deletePost(id);
         return new ResponseEntity<>("Post deleted successfully", HttpStatus.OK);
     }
+
+    @PostMapping("/test")
+    public ResponseEntity<String> testController(@RequestBody PostCreateDTO body){
+        System.out.println(body);
+        return new ResponseEntity<>("hello" + body.getTitle(),HttpStatus.OK);
+    }
 }
