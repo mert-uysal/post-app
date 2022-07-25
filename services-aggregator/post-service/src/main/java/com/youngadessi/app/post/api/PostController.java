@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class PostController {
 
-    private  final PostService postService;
+    private final PostService postService;
 
     @Tag(name = "v1 - CMS Post API", description = "Maintain CMS Post API")
     @Operation(
