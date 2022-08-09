@@ -3,7 +3,7 @@ package com.youngadessi.app.user;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.youngadessi.app.*")
 //@EnableSwagger2
 public class UserServiceApplication {
 

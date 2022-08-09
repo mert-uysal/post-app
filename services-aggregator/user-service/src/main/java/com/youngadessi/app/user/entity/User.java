@@ -1,4 +1,4 @@
-package com.youngadessi.app.user.model;
+package com.youngadessi.app.user.entity;
 
 import com.youngadessi.app.common.sql.model.BaseEntity;
 import lombok.Getter;

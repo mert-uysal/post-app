@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class PostController {
 
-    private  final PostService postService;
+    private final PostService postService;
 
     @Tag(name = "v1 - CMS Post API", description = "Maintain CMS Post API")
     @Operation(
@@ -67,5 +67,11 @@ public class PostController {
     public ResponseEntity<String> deletePost(@PathVariable Long id) {
         this.postService.deletePost(id);
         return new ResponseEntity<>("Post deleted successfully", HttpStatus.OK);
+    }
+
+    @PostMapping("/test")
+    public ResponseEntity<String> testController(@RequestBody PostCreateDTO body){
+        System.out.println(body);
+        return new ResponseEntity<>("hello" + body.getTitle(),HttpStatus.OK);
     }
 }

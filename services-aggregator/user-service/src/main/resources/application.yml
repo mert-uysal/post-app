@@ -6,8 +6,14 @@ spring:
 spring:
   datasource:
     hikari:
-      pool-name: HikariUserServiceConnection #sadece logda okumak için
+      pool-name: HikariUserServiceConnection
       schema: user_schema
-
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    properties:
+      hibernate.default_schema: user_schema
 server:
   port: 9090
+  servlet:
+    context-path: /api/user-service
